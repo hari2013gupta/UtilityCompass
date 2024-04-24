@@ -26,8 +26,8 @@ public interface MyConstants {
     //All Constants
 //    int Action_Camera = 200;
 //    int Request_Camera = 15;
-    int LOCATION_SETTING_REQUEST = 999;
-    int REQUEST_FINE_LOCATION = 1234;
+//    int LOCATION_SETTING_REQUEST = 999;
+//    int REQUEST_FINE_LOCATION = 1234;
 
     //ALL KEYS
     boolean D = false;
@@ -39,7 +39,7 @@ public interface MyConstants {
     //ALL PREF KEYS HERE
 
     //all varialbles added here
-    int REQUEST_TIMEOUT_CONNECT = 30, REQUEST_TIMEOUT_READ = 35, REQUEST_TIMEOUT_WRITE = 30;
+//    int REQUEST_TIMEOUT_CONNECT = 30, REQUEST_TIMEOUT_READ = 35, REQUEST_TIMEOUT_WRITE = 30;
     long CACHE_SIZE = 10 * 1024 * 1024;
     int MAX_AGE = 60;
     Pattern EMAIL_ADDRESS

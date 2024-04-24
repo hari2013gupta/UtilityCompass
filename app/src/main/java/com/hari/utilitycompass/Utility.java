@@ -5,19 +5,12 @@
  */
 package com.hari.utilitycompass;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -28,131 +21,129 @@ import java.util.Calendar;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import static android.content.ContentValues.TAG;
-
 public class Utility implements MyConstants {
-    public final static String ErrorCode = "@@__!!Error";
+//    public final static String ErrorCode = "@@__!!Error";
 
 //    public static void showSnackMessage(Activity activity, String message, boolean isTopView) {
 //        snackMessage(activity, message, true, isTopView);
 //    }
 
 
-    public static void openShareIntent(Activity activity, String app) {
-
-        String shareContent;
-        shareContent = "Share app! " +
-                "\nDownload BTSampark app \nhttp://onelink.to/abcdef" +
-                " and get 10% off on your first booking. *T&C.";
-
-        Intent intent;
-        if (app == null) {
-            intent = null;
-        } else {
-            intent = activity.getPackageManager().getLaunchIntentForPackage(app);
-        }
-
-        if (intent != null) {
-            try {
-                // The application exists
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.setPackage(app);
-
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
-
-//                Uri imageUri = Uri.parse(pictureFile.getAbsolutePath());
+//    public static void openShareIntent(Activity activity, String app) {
+//
+//        String shareContent;
+//        shareContent = "Share app! " +
+//                "\nDownload BTSampark app \nhttp://onelink.to/abcdef" +
+//                " and get 10% off on your first booking. *T&C.";
+//
+//        Intent intent;
+//        if (app == null) {
+//            intent = null;
+//        } else {
+//            intent = activity.getPackageManager().getLaunchIntentForPackage(app);
+//        }
+//
+//        if (intent != null) {
+//            try {
+//                // The application exists
 //                Intent shareIntent = new Intent();
 //                shareIntent.setAction(Intent.ACTION_SEND);
-//                //Target whatsapp:
-//                shareIntent.setPackage("com.whatsapp");
-//                //Add text and then Image URI
+//                shareIntent.setPackage(app);
+//
+//                shareIntent.setType("text/plain");
 //                shareIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
-//                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
-//                shareIntent.setType("image/jpeg");
-//                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+////                Uri imageUri = Uri.parse(pictureFile.getAbsolutePath());
+////                Intent shareIntent = new Intent();
+////                shareIntent.setAction(Intent.ACTION_SEND);
+////                //Target whatsapp:
+////                shareIntent.setPackage("com.whatsapp");
+////                //Add text and then Image URI
+////                shareIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
+////                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+////                shareIntent.setType("image/jpeg");
+////                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+//                activity.startActivity(shareIntent);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                intent = null;
+//            }
+//        }
+//        if (intent == null) {
+////            Common.snackMessage(mCoordinator, "Choose application to share..");
+//            // The application does not exist
+//            // Open GooglePlay or use the default system picker
+//            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+//            sharingIntent.setType("text/plain");
+//            sharingIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
+//            activity.startActivity(Intent.createChooser(sharingIntent, "Share using"));
+//        }
+//    }
 
-                activity.startActivity(shareIntent);
-            } catch (Exception e) {
-                e.printStackTrace();
-                intent = null;
-            }
-        }
-        if (intent == null) {
-//            Common.snackMessage(mCoordinator, "Choose application to share..");
-            // The application does not exist
-            // Open GooglePlay or use the default system picker
-            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-            sharingIntent.setType("text/plain");
-            sharingIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
-            activity.startActivity(Intent.createChooser(sharingIntent, "Share using"));
-        }
-    }
+//    public static void applyAnim(final TextView textView, int duration, boolean shouldCancelled) {
+//        final float[] hsv = new float[3];
+//        hsv[1] = 1;
+//        hsv[2] = 1;
+//        int hue = 0;
+//        ValueAnimator anim = new ValueAnimator();
+//        anim.setIntValues(Color.BLUE, Color.RED);
+//        anim.setEvaluator(new ArgbEvaluator());
+//        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                hsv[0] = 360 * animation.getAnimatedFraction();
+//                textView.setTextColor(Color.HSVToColor(hsv));
+//            }
+//        });
+//        anim.setDuration(duration);
+//        anim.setRepeatCount(Animation.INFINITE);
+//        anim.setRepeatMode(ValueAnimator.REVERSE);
+//        anim.start();
+//        if (shouldCancelled) anim.cancel();
+//    }
+//
+//    public static void closeDatabase(SQLiteDatabase dbObject) {
+//        try {
+//            if (dbObject != null && dbObject.isOpen()) {
+//                dbObject.close();
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-    public static void applyAnim(final TextView textView, int duration, boolean shouldCancelled) {
-        final float[] hsv = new float[3];
-        hsv[1] = 1;
-        hsv[2] = 1;
-        int hue = 0;
-        ValueAnimator anim = new ValueAnimator();
-        anim.setIntValues(Color.BLUE, Color.RED);
-        anim.setEvaluator(new ArgbEvaluator());
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                hsv[0] = 360 * animation.getAnimatedFraction();
-                textView.setTextColor(Color.HSVToColor(hsv));
-            }
-        });
-        anim.setDuration(duration);
-        anim.setRepeatCount(Animation.INFINITE);
-        anim.setRepeatMode(ValueAnimator.REVERSE);
-        anim.start();
-        if (shouldCancelled) anim.cancel();
-    }
+//    public static Boolean IsInternetConnected(Context context) {
+//        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+//        if (!(cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnectedOrConnecting())) {
+//            return false;
+//        } else
+//            return true;
+//    }
 
-    public static void closeDatabase(SQLiteDatabase dbObject) {
-        try {
-            if (dbObject != null && dbObject.isOpen()) {
-                dbObject.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Boolean IsInternetConnected(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (!(cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnectedOrConnecting())) {
-            return false;
-        } else
-            return true;
-    }
-
-    public static boolean validateSession() {
-
-        String currentDate = getCurrentDate();
-//        String loginDate = db.getString(Pref_loginDate);
-        if (
-//                loginDate.equals("") || currentDate.equals(loginDate) ||
-                currentDate.equals(validLoginDate10)
-                        || currentDate.equals(validLoginDate1)
-                        || currentDate.equals(validLoginDate2)
-                        || currentDate.equals(validLoginDate3)
-                        || currentDate.equals(validLoginDate4)
-                        || currentDate.equals(validLoginDate5)
-                        || currentDate.equals(validLoginDate6)
-                        || currentDate.equals(validLoginDate7)
-                        || currentDate.equals(validLoginDate8)
-                        || currentDate.equals(validLoginDate9)
-        ) {
-            Log.i(TAG, "Session Valid!");
-            return true;
-        }
-        Log.i(TAG, "Invalid Session!");
-        return false;
-    }
+//    public static boolean validateSession() {
+//
+//        String currentDate = getCurrentDate();
+////        String loginDate = db.getString(Pref_loginDate);
+//        if (
+////                loginDate.equals("") || currentDate.equals(loginDate) ||
+//                currentDate.equals(validLoginDate10)
+//                        || currentDate.equals(validLoginDate1)
+//                        || currentDate.equals(validLoginDate2)
+//                        || currentDate.equals(validLoginDate3)
+//                        || currentDate.equals(validLoginDate4)
+//                        || currentDate.equals(validLoginDate5)
+//                        || currentDate.equals(validLoginDate6)
+//                        || currentDate.equals(validLoginDate7)
+//                        || currentDate.equals(validLoginDate8)
+//                        || currentDate.equals(validLoginDate9)
+//        ) {
+//            Log.i(TAG, "Session Valid!");
+//            return true;
+//        }
+//        Log.i(TAG, "Invalid Session!");
+//        return false;
+//    }
 
     public static String getCurrentDate() {
         return new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());

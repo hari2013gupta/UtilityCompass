@@ -42,7 +42,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import static com.hari.utilitycompass.Utility.IsInternetConnected;
+//import static com.hari.utilitycompass.Utility.IsInternetConnected;
 import static com.hari.utilitycompass.Utility.enableVisible;
 import static com.hari.utilitycompass.Utility.notNullParams;
 import static com.hari.utilitycompass.Utility.showSnackMessage;
@@ -233,16 +233,16 @@ public class BaseActivity extends AppCompatActivity implements MyConstants {
         }
     }
 
-    public void showErrorMessageAlert(Context context) {
-        try {
-            if (!IsInternetConnected(context)) {
-                showSnack("No Internet Connection Available!");
-            } else {
-                showSnack("Something went wrong. Please try again\" + \" in some time ");
-            }
-        } catch (Exception ex) {
-        }
-    }
+//    public void showErrorMessageAlert(Context context) {
+//        try {
+//            if (!IsInternetConnected(context)) {
+//                showSnack("No Internet Connection Available!");
+//            } else {
+//                showSnack("Something went wrong. Please try again\" + \" in some time ");
+//            }
+//        } catch (Exception ex) {
+//        }
+//    }
 
     public void showProgressDialog(Context context) {
         dialog = new Dialog(context);
