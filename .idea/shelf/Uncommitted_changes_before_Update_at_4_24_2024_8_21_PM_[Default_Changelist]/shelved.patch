@@ -1,0 +1,13 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null	(date 1713970184670)
++++ b/README.md	(date 1713970184670)
+@@ -0,0 +1,3 @@
++# UtilityCompass
++Initial Commit
++Basic magnetic sensor demo
