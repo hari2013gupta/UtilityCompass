@@ -159,8 +159,7 @@ public class CompassActivity extends BaseActivity implements SensorEventListener
         } else if (degree > 337 && degree < 360) {
             dir = "N";
         }
-//		else if (degree==360){dir="N";} 
-
+//		else if (degree==360){dir="N";}
 
 //		else if(degree==90){dir="East";} else if(degree==180){dir="South";} else if(degree==270){dir="West";}
 //		else if(degree>0&&degree<90){dir="NE";} else if(degree>90&&degree<180){dir="ES";} else if(degree>180&&degree<270){dir="SW";}else if(degree>270&&degree<360){dir="WN";}
@@ -187,11 +186,9 @@ public class CompassActivity extends BaseActivity implements SensorEventListener
 
         boolean isNegativeAngle;
 
-
         // Get decimal number of degrees from user.
         degreesTemp = hari_deg;
 //				degreesTemp = parseFloat(window.document.decDegrees.decDegrees.value);
-
 
         // Assume angle is not negative.
         isNegativeAngle = false;

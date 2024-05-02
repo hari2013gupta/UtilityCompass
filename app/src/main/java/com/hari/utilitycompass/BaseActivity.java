@@ -48,7 +48,6 @@ import static com.hari.utilitycompass.Utility.notNullParams;
 import static com.hari.utilitycompass.Utility.showSnackMessage;
 
 public class BaseActivity extends AppCompatActivity implements MyConstants {
-
     Dialog dialog;
     private String TAG = BaseActivity.class.getSimpleName();
     private ProgressDialog mProgressD;
