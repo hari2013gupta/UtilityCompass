@@ -33,7 +33,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.socks.library.KLog;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,7 +48,7 @@ import static com.hari.utilitycompass.Utility.showSnackMessage;
 
 public class BaseActivity extends AppCompatActivity implements MyConstants {
     Dialog dialog;
-    private String TAG = BaseActivity.class.getSimpleName();
+    static final String TAG = BaseActivity.class.getSimpleName();
     private ProgressDialog mProgressD;
 
     public void hideKeyBoard(Activity activity) {
@@ -143,13 +142,13 @@ public class BaseActivity extends AppCompatActivity implements MyConstants {
     @Override
     protected void onStart() {
         super.onStart();
-        KLog.d("Start () --> BaseActivity");
+        Log.d(TAG, "onStart BaseActivity");
     }
 
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
-        KLog.d("interact activity");
+        Log.d(TAG, "interact activity");
     }
 
     public void showSnack(String message) {
@@ -160,11 +159,11 @@ public class BaseActivity extends AppCompatActivity implements MyConstants {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
-                KLog.i("isMyServiceRunning?", true + "");
+                Log.i(TAG, "isMyServiceRunning?");
                 return true;
             }
         }
-        KLog.i("isMyServiceRunning?", false + "");
+        Log.i(TAG, "isMyServiceRunning?");
         return false;
     }
 

@@ -12,7 +12,6 @@
 8*67-23=NE    
 9*0-22=N    
 10*338-360=N    
-******hari*******
 *********/
 
 package com.hari.utilitycompass;
